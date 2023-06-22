@@ -74,7 +74,7 @@ router.get('/user', verify, async (req, res) => {
 
   try {
     const user = await User.findById({ _id: findUser });
-    res.status(200).json({ user });
+    res.status(200).json({ id: user._id, name: user.name, email: user.email, created_at: user.created_at });
   } catch (error) {
     res.status(400).json({ "message": "credentials error" });
   }
